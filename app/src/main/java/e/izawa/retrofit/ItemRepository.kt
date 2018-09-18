@@ -18,7 +18,7 @@ class ItemRepository {
         val okHttpClient = OkHttpClient.Builder().build()
         val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
         val retrofit = Retrofit.Builder()
-                .baseUrl("http://localhost:3000/")
+                .baseUrl("https://api.github.com/")
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .client(okHttpClient)
                 .build()
