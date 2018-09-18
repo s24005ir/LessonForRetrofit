@@ -18,7 +18,7 @@ class ItemRepository {
         val okHttpClient = OkHttpClient.Builder().build()
         val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl("http://192.168.10.3:3000/")
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .client(okHttpClient)
                 .build()
@@ -28,9 +28,7 @@ class ItemRepository {
     // エラー処理は省いています
     fun getItemList(callback: (List<ItemEntity>) -> Unit) {
         itemService.items(/*page = 1, perPage = 10*/).enqueue(object : Callback<List<ItemEntity>> {
-
             override fun onResponse(call: Call<List<ItemEntity>>?, response: Response<List<ItemEntity>>?) {
-                Log.d("tubasa", "ab")
                 response?.let {
                     if (response.isSuccessful) {
                         response.body()?.let {
@@ -39,9 +37,7 @@ class ItemRepository {
                     }
                 }
             }
-
-            override fun onFailure(call: Call<List<ItemEntity>>?, t: Throwable?) {
-                Log.d("tubasa", "")}
+            override fun onFailure(call: Call<List<ItemEntity>>?, t: Throwable?) {}
         })
     }
 }
