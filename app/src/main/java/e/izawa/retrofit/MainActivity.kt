@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             itemRepository.getItemList { itemList ->
                 Log.d("tubasa", "$itemList")
                 _id.text = itemList[0].id.toString()
-                _title.text = itemList[0].type
+                _name.text = itemList[0].name
             }
         }
     }

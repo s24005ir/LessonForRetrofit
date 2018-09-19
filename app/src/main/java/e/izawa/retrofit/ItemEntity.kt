@@ -15,6 +15,6 @@ data class ItemEntity(
 //val user_name: String,
 //@Json(name="events")
 //val events: String
-@Json(name="type")
-val type:String
+@Json(name="name")
+val name:String
 )
