@@ -4,6 +4,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ItemService {
-    @GET("users")
-    fun items(): retrofit2.Call<List<ItemEntity>>
+    @GET("user")
+    fun items(): retrofit2.Call<ItemEntity>
 }
